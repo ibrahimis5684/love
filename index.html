@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Heart's Question for Samia</title>
+    <style>
+        :root {
+            --paper: #fff9f3;
+            --ink: #3e2723;
+            --blush: #ffb7c5;
+            --leaf: #8c9772;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5eee6 url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" opacity="0.1"><path d="M50 0Q40 15 30 0 20 15 10 0 0 15-10 0v100h120V0Q90 15 80 0 70 15 60 0 50 15 40 0Z" fill="%238c9772"/></svg>');
+            font-family: 'Caveat', cursive;
+            overflow: hidden;
+        }
+
+        .letter-wrapper {
+            position: relative;
+            max-width: 600px;
+            padding: 2rem;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .handmade-paper {
+            background: var(--paper);
+            padding: 3rem 2rem;
+            border-radius: 2px;
+            position: relative;
+            transform: rotate(-1deg);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .beloved-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 3px solid var(--blush);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        .ink-text {
+            color: var(--ink);
+            font-size: 1.8rem;
+            line-height: 1.6;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .natural-button {
+            background: var(--leaf);
+            color: var(--paper);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.4rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Caveat', cursive;
+            margin: 0.5rem;
+        }
+
+        .natural-button:hover {
+            background: var(--blush);
+            transform: translateY(-2px);
+        }
+
+        .question-section {
+            display: none;
+            margin-top: 2rem;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .floral-frame {
+            position: relative;
+            padding: 1rem;
+            margin: 2rem 0;
+            border: 1px solid var(--leaf);
+            border-radius: 10px;
+        }
+
+        .floral-frame::before {
+            content: '🌸🌿🌼';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--paper);
+            padding: 0 1rem;
+        }
+        .certificate-image-box {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            margin: auto;
+            border-radius: 50%;
+            border: 2px solid var(--blush);
+            & img {
+                border-radius: 0;
+                width: 100%;
+                height: auto;
+                border: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="letter-wrapper">
+        <div class="handmade-paper">
+            
+            <img src="samia.jpg" 
+                 alt="My Beloved Samia" 
+                 class="beloved-image">
+
+            <p class="ink-text">
+                My Dearest Samia,<br>
+                You are the most beautiful soul I've ever known... <br>
+                In your smile, I find my dawn,<br>
+                A quiet peace I rest upon,<br>
+                With you, all fears are gone.
+            </p>
+
+            <center>
+                <button class="natural-button" onclick="revealQuestion()">
+                    Read My Heart's Question
+                </button>
+            </center>
+
+            <div class="question-section" id="questionSection">
+                <div class="floral-frame">
+                    <p class="ink-text" style="font-size: 1.5rem">
+                        Will you let me love you properly,
+                        deeply, and truly?
+                    </p>
+                    
+                    <center>
+                        <button class="natural-button" onclick="answerYes()" 
+                                style="background: var(--blush); font-size: 1.6rem">
+                            Yes, I choose us 💖
+                        </button>
+                        
+                        <button class="natural-button" onclick="answerHesitate(this)" 
+                                style="background: transparent; color: var(--ink); border: 2px solid var(--ink)">
+                            I need some time...🕑
+                        </button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function revealQuestion() {
+            document.getElementById('questionSection').style.display = 'block';
+            event.target.style.display = 'none';
+            
+        }
+
+        function answerYes() {
+            for(let i = 0; i < 20; i++) {
+                const petal = document.createElement('div');
+                petal.style.position = 'fixed';
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.top = '-10px';
+                petal.style.fontSize = '24px';
+                petal.style.animation = `float ${Math.random() * 3 + 2}s linear`;
+                petal.innerHTML = '💝';
+                document.body.appendChild(petal);
+                
+                setTimeout(() => petal.remove(), 5000);
+            }
+            document.querySelector('.handmade-paper').innerHTML = `
+                <div style="text-align: center; padding: 2rem">
+                <div class="certificate-image-box">
+                    <img src="is.PNG"  class="beloved-image">
+                </div>
+                <p class="ink-text" style="font-size: 2rem">
+                    Thank you for this beautiful "yes" 💖<br>
+                    Let's grow this love together...
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem">
+                    <div style="font-size: 2rem">Ibrahim</div>
+                    <div style="font-size: 2rem; color: var(--blush)">❤</div>
+                    <div style="font-size: 2rem">Samia</div>
+                </div>
+            </div>
+            `;
+        }
+
+        function answerHesitate(btn) {
+            document.querySelector('.handmade-paper').innerHTML = `
+                <div style="text-align: center; padding: 2rem">
+                <div class="certificate-image-box">
+                    <img src="isNO.jpg"  class="beloved-image">
+                </div>
+                <p class="ink-text" style="font-size: 2rem">
+                    Thank you for this beautiful "decision" 💔
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem">
+                    <div style="font-size: 2rem">Ibrahim</div>
+                    <div style="font-size: 2rem; color: var(--blush)">❌</div>
+                    <div style="font-size: 2rem">Samia</div>
+                </div>
+            </div>
+            `;
+        }
+
+        // Floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
